@@ -15,6 +15,8 @@ export function ContactForm({ onSubmit }) {
       case 'number':
         setNumber(evt.target.value);
         break;
+      default:
+        return;
     }
   };
 
