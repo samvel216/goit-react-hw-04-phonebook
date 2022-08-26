@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 
-export const ContactForm = ({ onSubmit }) => {
+export default ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
