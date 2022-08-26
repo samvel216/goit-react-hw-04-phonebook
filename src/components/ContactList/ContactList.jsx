@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { ContactItem } from '../ContactItem/ContactItem';
 import styles from './ContactList.module.css';
 
-export default function ContactList({ data, onDeleteContact }) {
+export function ContactList({ data, onDeleteContact }) {
   return (
     <ul className={styles.list}>
       {data.map(({ id, name, number }) => (

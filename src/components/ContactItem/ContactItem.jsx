@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './ContactItem.module.css';
 
-export default function ContactItem({ name, number, onClick }) {
+export function ContactItem({ name, number, onClick }) {
   return (
     <>
       <p className={styles.text}>
