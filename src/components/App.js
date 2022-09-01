@@ -13,16 +13,15 @@ export const App = () => {
   ]);
   const [filt, setFilter] = useState("");
 
+
   useEffect(() => {
     const contactslocaolStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
     const parseContactslocaolStorage = JSON.parse(contactslocaolStorage);
     if (parseContactslocaolStorage) {
       setContacts(parseContactslocaolStorage);
     }
+
   }, []);
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
 
   const chancheContact = ({ name, number }) => {
     const isFindCopyContact = contacts.find(
@@ -34,11 +33,13 @@ export const App = () => {
     }
     const Contact = { id: nanoid(), name, number };
     setContacts([Contact, ...contacts]);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([Contact, ...contacts]));
   };
 
   const deleteContact = contactId => {
     const contactsAnswer = contacts.filter(({ id }) => id !== contactId);
     setContacts(contactsAnswer);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contactsAnswer));
   };
 
   const onChangeFilter = evt => {
